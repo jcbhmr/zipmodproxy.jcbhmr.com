@@ -1,0 +1,11 @@
+[build]
+command = "go build -tags netgo,netlify -o netlify/functions/all ."
+
+[build.environment]
+GO_VERSION = "1.24.1"
+GO_IMPORT_PATH = "github.com/jcbhmr/zipmodproxy.jcbhmr.com"
+
+[[redirects]]
+from = "/*"
+to = "/.netlify/functions/all/:splat"
+status = 200
